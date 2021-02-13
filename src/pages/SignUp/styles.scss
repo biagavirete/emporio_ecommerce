@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
 
-html {
+// html {
+//   background: url(../../assets/timothy-dykes-Lq1rOaigDoY-unsplash.jpg) no-repeat center center fixed; 
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
+
+body {
   background: url(../../assets/timothy-dykes-Lq1rOaigDoY-unsplash.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-body {
   display: flex;
     justify-content: center;
     align-items: center;
@@ -33,8 +38,17 @@ body {
   }
 
   .logo-container {
-    display: inline;
-    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+
+    img:first-child {
+      width: 5rem;
+    }
+
+    img {
+      width: 8rem;
+    }
   }
 
   .form {
@@ -50,7 +64,7 @@ body {
 
     strong {
       padding: 0.5rem;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--orange);
       text-align: center;
     }
