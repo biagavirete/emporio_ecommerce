@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+html {
+  background: url(../../assets/timothy-dykes-Lq1rOaigDoY-unsplash.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-size: 1rem;
+}
+
+.signup-container {
+  background-color: var(--light-grey);
+  border-radius: 1rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+
+  h2 {
+    padding: 1.5rem;
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+
+  .logo-container {
+    display: inline;
+    padding: 1rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      width: auto;
+      padding: 0.5rem;
+      font-size: 1rem;
+      flex-wrap: wrap;
+    }
+
+    strong {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--orange);
+      text-align: center;
+    }
+
+    button {
+      background-color: var(--yellow);
+      width: 25rem;
+      padding: 0.3rem;
+      font-size: 1.5rem;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    
+    .form-text {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 25rem;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .form-radio {
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+      justify-content: center;
+      align-items: center;
+
+      input {
+        margin: 0.1rem;
+      }
+
+      label {
+        margin: 0.5rem;
+      }
+    }
+  }
+
+}
