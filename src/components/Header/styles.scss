@@ -94,7 +94,16 @@ box-shadow: 5px 5px 15px 5px #000000;
 
       li {
         color: var(--dark);
-        margin-right: 5rem;
+
+        &:after {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          height: 20px;
+          width:1px;
+          background: #000;
+        }
+
 
         a {
           text-decoration: none;
@@ -102,6 +111,7 @@ box-shadow: 5px 5px 15px 5px #000000;
           font-weight: 700;
           font-size: 1.1rem;
           position: relative;
+          padding: 5px 20px;
 
           &:after {    
             background: none repeat scroll 0 0 transparent;
