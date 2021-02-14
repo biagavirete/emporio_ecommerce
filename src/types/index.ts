@@ -5,3 +5,9 @@ export interface IBeer {
   title: string;
   price: string;
 }
+
+export interface IUser {
+  name: string;
+  email: string;
+  password: string;
+}

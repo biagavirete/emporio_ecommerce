@@ -34,7 +34,7 @@ const SignUp = () => {
       password: passwordInput.current?.value
     }
 
-    const setToken = await api.post('/users', request)
+    const setToken = await api.post('/register', request)
     if (setToken.status !== 400 || age === 'yes') {
       localStorage.setItem("token", setToken.data.accessToken);
       setAuthorized(true);
