@@ -4,11 +4,15 @@ import api from '../../services/api';
 import { IoCartOutline, IoPersonOutline } from 'react-icons/io5';
 import './styles.scss';
 import { IUser } from '../../types';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
   const [users, setUsers] = useState([]);
   const token = localStorage.getItem("token")
+
+  const { numberCart } = useSelector((state: any) => state.cart)
+
 
   useEffect(() => {
     api.get('/users')
@@ -40,7 +44,7 @@ const Header = () => {
           <Link to="/home"><IoPersonOutline size={35} /></Link>
           <Link to="/home">Login</Link>
           <Link to="/home"><IoCartOutline size={35} /></Link>
-          <Link to="/cart">Carrinho</Link>
+          <Link to="/cart">Carrinho ({numberCart})</Link>
 
         </div>
       </div>
