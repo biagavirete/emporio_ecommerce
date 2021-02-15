@@ -1,16 +1,31 @@
 import React from 'react';
 import Header from '../../components/Header';
-import { IoArrowForwardOutline, IoTrashOutline } from 'react-icons/io5';
+import { IoArrowForwardOutline, IoCloseCircleOutline, IoTrashOutline } from 'react-icons/io5';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { IProduct } from '../../store/ducks/cart/types';
 import { decreaseQuantity, deleteCart, increaseQuantity } from '../../store/ducks/cart/actions';
+import { formatValue } from '../../utils/formatValue';
 
 const Cart = () => {
 
-  const cartList = useSelector((state: any) => state.cart.carts)
+  const items = useSelector((state: any) => state.cart);
+  let cartList: IProduct[] | undefined = [];
+
+  let totalCart = 0;
+
+  Object.keys(items.carts).forEach(function (item) {
+    const formattedPrice = formatValue(items.carts[item].price)
+    totalCart += items.carts[item].quantity * formattedPrice;
+    cartList?.push(items.carts[item]);
+  })
 
   const dispatch = useDispatch();
+
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
 
   return (
     <>
@@ -21,6 +36,13 @@ const Cart = () => {
             <h3>Meu carrinho</h3>
             <button type="button"><IoArrowForwardOutline size={35} /></button>
           </div>
+          {totalCart === 0 && (
+            <>
+              <div className="empty-cart">
+                <IoCloseCircleOutline size={60} /> <strong>Carrinho vazio</strong>
+              </div>
+            </>
+          )}
 
           {cartList !== undefined && cartList.map((cartItem: IProduct, key: any) => (
             <>
@@ -30,7 +52,7 @@ const Cart = () => {
               <div className="cart-item-container" key={key}>
                 <div className="left-side">
                   <img src={cartItem.image} alt={cartItem.title} />
-                  <h3>{cartItem.price}</h3>
+                  <h3>{cartItem.price} {console.log(formatValue(cartItem.price))}</h3>
                 </div>
                 <div className="right-side">
                   <h3>{cartItem.title}</h3>
@@ -44,7 +66,7 @@ const Cart = () => {
             </>
           ))}
           <div className="cart-footer">
-            <h3>Total: R$ </h3>
+            <h3>Total: {formatter.format(totalCart)} </h3>
           </div>
         </div>
       </div>

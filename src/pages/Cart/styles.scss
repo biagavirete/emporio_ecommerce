@@ -43,11 +43,29 @@
         font-size: 1.2rem;
         padding: 1rem;
       }
+    }
 
-      // svg {
-      //   margin-top: 0.5rem;
-      //   margin-right: 1rem;
-      // }
+    .empty-cart {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+
+      svg {
+        margin-top: 1rem;
+        color: var(--dark-grey);
+      }
+
+      strong {
+        padding: 1rem;
+        font-size: 1.2rem;
+        color: var(--dark-grey);
+      }
     }
 
     .clear-icon {
