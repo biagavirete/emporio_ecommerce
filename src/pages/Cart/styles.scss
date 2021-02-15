@@ -97,6 +97,7 @@
 
           h3 {
             font-size: 1.5rem;
+            padding-top: 1rem;
           }
         }
 
@@ -148,5 +149,18 @@
       }
 
       
+    }
+    .cart-footer {
+      display: flex;
+      flex-direction: row-reverse;
+      border-top: 2px solid var(--light-grey);
+      width: 100%;
+      padding: -1rem;
+
+      h3 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 1.2rem;
+        padding: 1rem;
+      }
     }
   }

@@ -1,27 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from '../../components/Header';
 import { IoArrowForwardOutline, IoTrashOutline } from 'react-icons/io5';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import api from '../../services/api';
-import { getProducts } from '../../store/ducks/cart/actions';
+import { IProduct } from '../../store/ducks/cart/types';
+import { decreaseQuantity, deleteCart, increaseQuantity } from '../../store/ducks/cart/actions';
 
 const Cart = () => {
-  const token = localStorage.getItem("token")
+
+  const cartList = useSelector((state: any) => state.cart.carts)
 
   const dispatch = useDispatch();
-
-  const beers = useSelector((state: any) => state.cart.products)
-
-  useEffect(() => {
-    const headers = {
-      'Authorization': `Bearer ${token}`
-    }
-
-    api.get('/beers', { headers: headers })
-      .then(response => dispatch(getProducts(response.data)))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <>
@@ -32,26 +21,31 @@ const Cart = () => {
             <h3>Meu carrinho</h3>
             <button type="button"><IoArrowForwardOutline size={35} /></button>
           </div>
-          <div className="clear-icon">
-            <button type="button"><IoTrashOutline size={30} /></button>
-          </div>
-          {beers !== undefined && (
-            <div className="cart-item-container">
-              <div className="left-side">
-                <img src={beers[0].image} alt={beers[0].title} />
-                <h3>{beers[0].price}</h3>
+
+          {cartList !== undefined && cartList.map((cartItem: IProduct, key: any) => (
+            <>
+              <div className="clear-icon">
+                <button type="button" onClick={() => dispatch(deleteCart(key))}><IoTrashOutline size={30} /></button>
               </div>
-              <div className="right-side">
-                <h3>{beers[0].title}</h3>
-                <div className="buttons-container">
-                  <button className="orange-button">-</button>
-                  <button className="white-button">0</button>
-                  <button className="orange-button">+</button>
+              <div className="cart-item-container" key={key}>
+                <div className="left-side">
+                  <img src={cartItem.image} alt={cartItem.title} />
+                  <h3>{cartItem.price}</h3>
+                </div>
+                <div className="right-side">
+                  <h3>{cartItem.title}</h3>
+                  <div className="buttons-container">
+                    <button className="orange-button" onClick={() => dispatch(decreaseQuantity(key))}>-</button>
+                    <button className="white-button">{cartItem.quantity}</button>
+                    <button className="orange-button" onClick={() => dispatch(increaseQuantity(key))}>+</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-
+            </>
+          ))}
+          <div className="cart-footer">
+            <h3>Total: R$ </h3>
+          </div>
         </div>
       </div>
     </>
