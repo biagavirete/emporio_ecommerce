@@ -9,7 +9,7 @@
 .signup-container {
   background-color: var(--light-grey);
   border-radius: 1rem;
-  padding: 3rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,7 @@
 
     button {
       background-color: var(--yellow);
-      width: 25rem;
+      width: 20rem;
       padding: 0.3rem;
       font-size: 1.5rem;
       font-family: 'Open Sans Condensed', sans-serif;
@@ -68,9 +68,12 @@
     .form-text {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
 
       input {
-        width: 25rem;
+        width: 20rem;
         font-size: 1rem;
         padding: 0.5rem 1rem;
         margin-bottom: 0.5rem;
