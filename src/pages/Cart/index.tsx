@@ -4,7 +4,7 @@ import { IoArrowForwardOutline, IoCloseCircleOutline, IoTrashOutline } from 'rea
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { IProduct } from '../../store/ducks/cart/types';
-import { decreaseQuantity, deleteCart, increaseQuantity } from '../../store/ducks/cart/actions';
+import { decreaseQuantity, removeFromCart, increaseQuantity, clearCart } from '../../store/ducks/cart/actions';
 import { formatValue } from '../../utils/formatValue';
 
 const Cart = () => {
@@ -34,7 +34,7 @@ const Cart = () => {
         <div className="cart-content">
           <div className="cart-header">
             <h3>Meu carrinho</h3>
-            <button type="button"><IoArrowForwardOutline size={35} /></button>
+            <button type="button" onClick={() => dispatch(clearCart())}><IoArrowForwardOutline size={35} /></button>
           </div>
           {totalCart === 0 && (
             <>
@@ -47,7 +47,7 @@ const Cart = () => {
           {cartList !== undefined && cartList.map((cartItem: IProduct, key: any) => (
             <>
               <div className="clear-icon">
-                <button type="button" onClick={() => dispatch(deleteCart(key))}><IoTrashOutline size={30} /></button>
+                <button type="button" onClick={() => dispatch(removeFromCart(key))}><IoTrashOutline size={30} /></button>
               </div>
               <div className="cart-item-container" key={key}>
                 <div className="left-side">

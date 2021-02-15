@@ -5,10 +5,13 @@ export const getProducts = (payload: IProduct) => action(CartTypes.GET_PRODUCTS,
 
 export const getNumberCart = () => action(CartTypes.GET_NUMBER_CART);
 
-export const addToCart = (payload: any) => action(CartTypes.ADD_TO_CART, payload);
+export const addToCart = (payload: IProduct) => action(CartTypes.ADD_TO_CART, payload);
 
-export const deleteCart = (payload: any) => action(CartTypes.DELETE_CART, payload);
+export const removeFromCart = (payload: IProduct) => action(CartTypes.REMOVE_FROM_CART, payload);
 
-export const increaseQuantity = (payload: any) => action(CartTypes.INCREASE_QUANTITY, payload);
+export const increaseQuantity = (payload: IProduct) => action(CartTypes.INCREASE_QUANTITY, payload);
 
-export const decreaseQuantity = (payload: any) => action(CartTypes.DECREASE_QUANTITY, payload);
+export const decreaseQuantity = (payload: IProduct) => action(CartTypes.DECREASE_QUANTITY, payload);
+
+export const clearCart = () => action(CartTypes.CLEAR_CART);
+

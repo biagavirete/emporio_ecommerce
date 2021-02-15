@@ -68,7 +68,7 @@ function cartReducer(state = initialStateProduct, action: any) {
       return {
         ...state
       }
-    case CartTypes.DELETE_CART:
+    case CartTypes.REMOVE_FROM_CART:
       let quantity_ = state.carts[action.payload].quantity;
       return {
         ...state,
@@ -76,6 +76,11 @@ function cartReducer(state = initialStateProduct, action: any) {
         carts: state.carts.filter((item: IProduct) => {
           return item.id !== state.carts[action.payload].id
         })
+      }
+    case CartTypes.CLEAR_CART:
+      return {
+        numberCart: 0,
+        carts: [],
       }
     default:
       return state
