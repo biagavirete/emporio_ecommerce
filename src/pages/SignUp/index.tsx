@@ -24,7 +24,7 @@ const SignUp = () => {
     }
 
     if (age === 'no') {
-      setError('Desculpe, acesso restrito a menores de 18 anos.');
+      setError('Desculpe, acesso restrito a maiores de 18 anos.');
       return;
     }
 
