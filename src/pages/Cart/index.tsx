@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../../components/Header';
-import { IoArrowForwardOutline, IoCloseCircleOutline, IoTrashOutline } from 'react-icons/io5';
+import { IoArrowBackOutline, IoArrowForwardOutline, IoCloseCircleOutline, IoTrashOutline } from 'react-icons/io5';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { IProduct } from '../../store/ducks/cart/types';
 import { decreaseQuantity, removeFromCart, increaseQuantity, clearCart } from '../../store/ducks/cart/actions';
 import { formatValue } from '../../utils/formatValue';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -66,6 +67,7 @@ const Cart = () => {
             </>
           ))}
           <div className="cart-footer">
+            <Link to="/home"><IoArrowBackOutline size={25} /> Continuar comprando</Link>
             <h3>Total: {formatter.format(totalCart)} </h3>
           </div>
         </div>
