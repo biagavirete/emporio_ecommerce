@@ -55,26 +55,28 @@ box-shadow: 5px 5px 15px 5px #000000;
       justify-content: center;
       text-align: center;
       justify-items: center;
-      padding-right: 2rem;
+      // padding-right: 2rem;
+      width: 30%;
 
       strong {
         font-size: 1.1rem;
-      }
-
-      svg {
-        color: var(--black);
-        margin-right: 0.5rem;
-      }
-
-      svg:last-child {
-        margin-left: 5rem;
+        padding: 1rem;
       }
 
       a {
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
         text-decoration: none;
         font-weight: 700;
         color: #000;
         font-size: 1.1rem;
+        padding: 1rem;
+
+        svg {
+          margin-right: 0.5rem;
+        }
       }
 
     }
