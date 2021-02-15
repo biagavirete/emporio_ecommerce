@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import api from '../../services/api';
 import './styles.scss';
@@ -10,6 +10,8 @@ import { IProduct } from '../../store/ducks/cart/types';
 import { Redirect } from 'react-router-dom';
 
 const Home = () => {
+  const [newCartItem, setNewCartItem] = useState(false);
+
   const token = localStorage.getItem("token")
 
   const dispatch = useDispatch();
@@ -28,7 +30,7 @@ const Home = () => {
 
   const addItemToCart = (item: IProduct) => {
     dispatch(addToCart(item));
-    <Redirect to="/cart" />;
+    setNewCartItem(true);
   }
 
   return (
@@ -54,6 +56,7 @@ const Home = () => {
               <div className="bottom">
                 <strong>{beer.price}</strong>
                 <button type="button" onClick={() => addItemToCart(beer)}>Adicionar <IoCartOutline size={20} /></button>
+                {newCartItem && <Redirect to="/cart" />}
               </div>
             </div>
           ))}
