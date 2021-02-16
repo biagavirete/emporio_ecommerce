@@ -18,21 +18,18 @@ const Header = () => {
     const headers = {
       'Authorization': `Bearer ${token}`
     }
+    api.get('/categories', { headers: headers })
+      .then(response => setCategories(response.data))
 
-    api.get('/users', { headers: headers })
-      .then(response => dispatch(getUsers(response.data)))
+    if (token) {
+      api.get('/users', { headers: headers })
+        .then(response => dispatch(getUsers(response.data)))
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [token])
 
   const users = useSelector((state: any) => state.users.users);
 
-  useEffect(() => {
-    const headers = {
-      'Authorization': `Bearer ${token}`
-    }
-    api.get('/categories', { headers: headers })
-      .then(response => setCategories(response.data))
-  }, [token])
 
   return (
     <>
@@ -49,16 +46,16 @@ const Header = () => {
               </div>
               <div className="icons-area">
                 {users !== undefined && <strong>Olá, {users[users.length - 1].name}!</strong>}
-                <Link to="/home"><IoHomeOutline size={35} />Home</Link>
-                <Link to="/cart"><IoCartOutline size={35} />Carrinho ({numberCart})</Link>
+                <Link to="/home"><IoHomeOutline size={30} />Home</Link>
+                <Link to="/cart"><IoCartOutline size={30} />Carrinho ({numberCart})</Link>
               </div>
             </div>
             <div className="categories-nav">
-              {categories !== undefined && categories.map((category: string) => (
-                <ul id="links">
-                  <li><Link to="/home">{category}</Link></li>
-                </ul>
-              ))}
+              <ul id="links">
+                {categories !== undefined && categories.map((category: string) => (
+                  <li key={category}><Link to="/home">{category}</Link></li>
+                ))}
+              </ul>
 
             </div>
           </div>

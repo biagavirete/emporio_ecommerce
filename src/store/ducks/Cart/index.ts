@@ -30,6 +30,7 @@ function cartReducer(state = initialStateProduct, action: any) {
         state.carts.push(cart);
       } else {
         let check = false;
+        // eslint-disable-next-line array-callback-return
         state.carts.map((item, key) => {
           if (item.id === action.payload.id) {
             state.carts[key].quantity++;

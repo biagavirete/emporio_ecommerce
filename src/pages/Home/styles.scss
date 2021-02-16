@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 100vh;
+  height: auto;
   width: 100vw;
+  min-height: 100vh;
   font-size: 1rem;
 
   .top-content {
@@ -14,10 +15,10 @@
     align-content: center;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
 
     h3 {
-      padding-left: 1rem;
+      padding-left: 0.5rem;
       font-family: 'Open Sans Condensed', sans-serif;
       font-size: 1.5rem;
     }

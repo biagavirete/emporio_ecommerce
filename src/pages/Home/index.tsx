@@ -41,9 +41,7 @@ const Home = () => {
             <div className="icon-container">
               <IoBeer size={40} />
             </div>
-            <div className="text-container">
-              <h3> Destaques no Empório</h3>
-            </div>
+            <h3> Destaques no Empório</h3>
           </div>
           <div className="content">
             {beers !== undefined && beers.map((beer: IProduct) => (
