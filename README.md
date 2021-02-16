@@ -1,6 +1,6 @@
-# Projeto Instagram Clone
+# Projeto Empório da Cerveja
 
-Projeto React utilizando Typescript e Redux desenvolvido na trilha React do Campinas Tech Talents, simulando um e-commerce de cervejas
+Projeto React utilizando Typescript e Redux desenvolvido na trilha React do Campinas Tech Talents, simulando um e-commerce de cervejas.  :beer:
 
 * APIs fakes utilizadas: <a href="https://github.com/jenicarvalho/fake-api-emporio">fake-api-emporio</a>
 
