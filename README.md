@@ -4,7 +4,7 @@ Projeto React utilizando Typescript e Redux desenvolvido na trilha React do Camp
 
 * APIs fakes utilizadas: <a href="https://github.com/jenicarvalho/fake-api-emporio">fake-api-emporio</a>
 
-<p align="center" width="50%"><img src="https://github.com/biagavirete/emporio_ecommerce/blob/master/src/assets/emporio.gif"></p>
+<p align="center" width="50%"><img src="https://github.com/biagavirete/emporio_ecommerce/blob/master/src/assets/emporio-cerveja.gif"></p>
 
 ## Como usar
 
