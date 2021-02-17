@@ -46,8 +46,9 @@ const Header = () => {
               </div>
               <div className="icons-area">
                 {users !== undefined && <strong>Olá, {users[users.length - 1].name}!</strong>}
-                <Link to="/home"><IoHomeOutline size={30} />Home</Link>
-                <Link to="/cart"><IoCartOutline size={30} />Carrinho ({numberCart})</Link>
+                <Link to="/home"><IoHomeOutline size={35} />Home</Link>
+                <div className="cart-icon">
+                  <Link to="/cart"><IoCartOutline size={35} /><span className="cart-badge">{numberCart}</span>Carrinho</Link></div>
               </div>
             </div>
             <div className="categories-nav">
