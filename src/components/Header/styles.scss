@@ -42,11 +42,13 @@ box-shadow: 5px 5px 15px 5px #000000;
 
       img:first-child {
         width: 70px;
+        
       }
 
       img {
         width: 100px;
       }
+
     }
 
     .icons-area {
@@ -56,12 +58,15 @@ box-shadow: 5px 5px 15px 5px #000000;
       justify-content: center;
       text-align: center;
       justify-items: center;
-      // padding-right: 2rem;
       width: 30%;
 
       strong {
         font-size: 1.1rem;
         padding: 1rem;
+
+        @media screen and (max-width: 900px) {
+          display: none;
+        }
       }
 
       a {
@@ -79,7 +84,16 @@ box-shadow: 5px 5px 15px 5px #000000;
           margin-right: 0.5rem;
         }
       }
+      @media screen and (max-width: 900px) {
+        display:flex;
+        flex-direction: column;
 
+        a {
+          display: flex;
+          flex-direction: column;
+          font-size: 0.8rem;
+        }
+      }
     }
   }
 
@@ -138,6 +152,26 @@ box-shadow: 5px 5px 15px 5px #000000;
               left: 0;  
             }
           }
+          }
+        }
+        @media screen and (max-width: 720px) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          justify-items: center;
+          align-content: center;
+
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+
+          }
+
+          li {
+            padding-bottom: 0.5rem;
           }
         }
       }
