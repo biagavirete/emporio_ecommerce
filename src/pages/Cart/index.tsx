@@ -65,7 +65,7 @@ const Cart = () => {
             <div className="cart-item-container" key={key}>
               <div className="left-side">
                 <img src={cartItem.image} alt={cartItem.title} />
-                <h3>{cartItem.price} {console.log(formatValue(cartItem.price))}</h3>
+                <h3>{cartItem.price}</h3>
               </div>
               <div className="right-side">
                 <h3>{cartItem.title}</h3>
