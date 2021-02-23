@@ -7,6 +7,7 @@ import { addToCart, getProducts } from '../../store/ducks/Cart/actions';
 import { IProduct } from '../../store/ducks/Cart/types';
 import { Redirect } from 'react-router-dom';
 import './styles.scss';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Home = () => {
   const [newCartItem, setNewCartItem] = useState(false);
@@ -17,13 +18,22 @@ const Home = () => {
 
   const beers = useSelector((state: any) => state.cart.products)
 
-  useEffect(() => {
-    const headers = {
-      'Authorization': `Bearer ${token}`
-    }
+  const headers = {
+    'Authorization': `Bearer ${token}`
+  }
 
-    api.get('/beers', { headers: headers })
-      .then(response => dispatch(getProducts(response.data)))
+  const getUsers = async () => {
+    try {
+      await api.get('/beers', { headers: headers }).then(response => dispatch(getProducts(response.data)));
+    } catch (error) {
+      if (error.response) {
+        toast.error('Ocorreu um erro ao carregar os produtos. Tente novamente!')
+      }
+    }
+  }
+
+  useEffect(() => {
+    getUsers()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -37,6 +47,7 @@ const Home = () => {
       { token
         ?
         <div className="main-container">
+          <Toaster />
           <div className="top-content">
             <div className="icon-container">
               <IoBeer size={40} />

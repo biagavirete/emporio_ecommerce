@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IoArrowBackOutline, IoArrowForwardOutline, IoCloseCircleOutline, IoTrashOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { IProduct } from '../../store/ducks/Cart/types';
@@ -6,11 +6,9 @@ import { decreaseQuantity, removeFromCart, increaseQuantity, clearCart } from '.
 import { formatValue } from '../../utils/formatValue';
 import { Link } from 'react-router-dom';
 import './styles.scss';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Cart = () => {
-  const [placedOrder, setPlacedOrder] = useState(false);
-  const [message, setMessage] = useState('');
-
   const items = useSelector((state: any) => state.cart);
   const { numberCart } = useSelector((state: any) => state.cart)
   let cartList: IProduct[] | undefined = [];
@@ -33,17 +31,14 @@ const Cart = () => {
   function placeOrder() {
     if (numberCart !== 0) {
       dispatch(clearCart());
-      setPlacedOrder(true);
-      setMessage('Pedido realizado com sucesso!');
+      toast.success('Pedido realizado com sucesso!')
     } else {
-      setPlacedOrder(true);
-      setMessage('Carrinho vazio. Adicione produtos antes de finalizar a compra.');
+      toast.error('Carrinho vazio! Adicione itens para finalizar a compra.')
     }
   }
 
   return (
     <div className="cart-container">
-      {placedOrder ? <div className="success-message"><strong>{message}</strong></div> : null}
       <div className="cart-content">
         <div className="cart-header">
           <h3>Meu carrinho</h3>
@@ -81,6 +76,7 @@ const Cart = () => {
         <div className="cart-footer">
           <Link to="/home"><IoArrowBackOutline size={25} /> Continuar comprando</Link>
           <h3>Total: {formatter.format(totalCart)} </h3>
+          <Toaster />
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import api from '../../services/api';
+import toast, { Toaster } from 'react-hot-toast';
 import './styles.scss';
 
 const SignUp = () => {
@@ -9,7 +10,6 @@ const SignUp = () => {
   const passwordInput = useRef<HTMLInputElement>(null)
 
   const [authorized, setAuthorized] = useState<boolean>(false);
-  const [error, setError] = useState<string>('');
   const [age, setAge] = useState();
 
   function onChangeValue(e: any) {
@@ -19,12 +19,12 @@ const SignUp = () => {
   const signUp = async () => {
 
     if (age === undefined) {
-      setError('Por favor, selecione uma das opções!');
+      toast.error('Selecione uma das opções!')
       return;
     }
 
     if (age === 'no') {
-      setError('Desculpe, acesso restrito a maiores de 18 anos.');
+      toast.error('Acesso somente a maiores de 18 anos')
       return;
     }
 
@@ -62,7 +62,7 @@ const SignUp = () => {
             <input type="radio" id="no" name="maior" value="no" />
             <label htmlFor="no">Não</label>
           </div>
-          <strong>{error ? error : null}</strong>
+          <Toaster />
           <button type="button" onClick={signUp}>Cadastrar</button>
           {authorized && <Redirect to="/home" />}
         </div>
