@@ -2,7 +2,7 @@
 
 Projeto React utilizando Typescript e Redux desenvolvido na trilha React do Campinas Tech Talents, simulando um e-commerce de cervejas.  :beer:
 
-* APIs fakes utilizadas: <a href="https://github.com/jenicarvalho/fake-api-emporio">fake-api-emporio</a>
+* API fake utilizada: <a href="https://github.com/jenicarvalho/fake-api-emporio">fake-api-emporio</a>
 
 <p align="center"><img src="https://github.com/biagavirete/emporio_ecommerce/blob/master/src/assets/emporio-cerveja.gif" width="50%"></p>
 
