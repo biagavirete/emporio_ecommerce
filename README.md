@@ -1,56 +1,57 @@
 # Projeto Empório da Cerveja
 
+React project using Typescript and Redux, developed during Campinas Tech Talents bootcamp, simulating a beer eCommerce. :beer:
 Projeto React utilizando Typescript e Redux desenvolvido na trilha React do Campinas Tech Talents, simulando um e-commerce de cervejas.  :beer:
 
-* API fake utilizada: <a href="https://github.com/jenicarvalho/fake-api-emporio">fake-api-emporio</a>
+* Fake API used: <a href="https://github.com/jenicarvalho/fake-api-emporio">fake-api-emporio</a>
 
 <p align="center"><img src="https://github.com/biagavirete/emporio_ecommerce/blob/master/src/assets/emporio-cerveja.gif" width="50%"></p>
 
-## Como usar
+## Getting started
 
-**Para instalar**
-> Clonar o repositório
+**Installing**
+> Cloning the repository
 
 ```bash
 $ git clone https://github.com/biagavirete/emporio_ecommerce.git
 $ cd emporio_ecommerce
 ```
 
-**Para rodar**
-> Instalar dependências
+**Running**
+> Installing dependencies
 
 ```bash
 $ yarn
 ```
 
-> Iniciar o React
+> Running React
 
 ```bash
 $  yarn start
 ```
 
-**Utilizando a API fake**
+**Running fake API**
 
-> Clonar o repositório com a API fake
+> Cloning fake API repository:
 
 ```bash
 $ git clone https://github.com/jenicarvalho/fake-api-emporio.git
 $ cd fake-api-emporio
 ```
 
-> Instalar dependências
+> Installing dependencies
 
 ```bash
 $ yarn
 ```
 
-> Iniciando o servidor fake
+> Running fake server
 
 ```bash
 $ json-server db.json -m ./node_modules/json-server-auth -r routes.json --port 4000
 ```
 
-## Desenvolvido com
+## Built with
 
 * Typescript
 * React
