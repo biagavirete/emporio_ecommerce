@@ -1,7 +1,6 @@
 # Projeto Empório da Cerveja
 
 React project using Typescript and Redux, developed during Campinas Tech Talents bootcamp, simulating a beer eCommerce. :beer:
-Projeto React utilizando Typescript e Redux desenvolvido na trilha React do Campinas Tech Talents, simulando um e-commerce de cervejas.  :beer:
 
 * Fake API used: <a href="https://github.com/jenicarvalho/fake-api-emporio">fake-api-emporio</a>
 
