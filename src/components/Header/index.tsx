@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
-import { IoCartOutline, IoHomeOutline } from 'react-icons/io5';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../store/ducks/User/actions';
+
+import { IoCartOutline, IoHomeOutline } from 'react-icons/io5';
 import './styles.scss';
 
 const Header = () => {
@@ -37,7 +39,9 @@ const Header = () => {
         <>
           <div className="header-container">
             <div className="upper-menu">
-              <strong>A Maior <strong id="orange-background">Loja Especializada de Cervejas</strong> do Brasil.</strong>
+              <strong>A Maior
+                <strong id="orange-background">Loja Especializada de Cervejas</strong>
+                do Brasil.</strong>
             </div>
             <div className="logo-cart-menu">
               <div className="logo-area">
@@ -53,9 +57,10 @@ const Header = () => {
             </div>
             <div className="categories-nav">
               <ul id="links">
-                {categories !== undefined && categories.map((category: string) => (
-                  <li key={category}><Link to="/home">{category}</Link></li>
-                ))}
+                {categories !== undefined &&
+                  categories.map((category: string) => (
+                    <li key={category}><Link to="/home">{category}</Link></li>
+                  ))}
               </ul>
 
             </div>
