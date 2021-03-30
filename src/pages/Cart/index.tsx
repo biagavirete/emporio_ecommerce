@@ -87,6 +87,7 @@ const Cart = () => {
                   <div className="buttons-container">
                     <button
                       className="orange-button"
+                      disabled={cartItem.quantity <= 1}
                       onClick={() => dispatch(decreaseQuantity(key))}>
                       -
                   </button>

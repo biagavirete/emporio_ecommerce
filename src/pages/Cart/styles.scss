@@ -158,6 +158,15 @@
             .orange-button {
               background-color: var(--orange);
               color: #fff;
+
+              &:hover {
+                cursor: pointer;
+              }
+
+              &:disabled {
+                background-color: #fdac8f;
+                cursor: not-allowed;
+              }
             }
 
             .white-button {
