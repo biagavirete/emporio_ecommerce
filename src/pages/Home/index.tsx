@@ -9,44 +9,45 @@ import { IProduct } from '../../store/ducks/Cart/types';
 
 import { IoBeer, IoCartOutline } from 'react-icons/io5';
 import './styles.scss';
+import axios from 'axios';
 
 const Home = () => {
   const [newCartItem, setNewCartItem] = useState(false);
 
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
 
   const dispatch = useDispatch();
 
-  const beers = useSelector((state: any) => state.cart.products)
+  const beers = useSelector((state: any) => state.cart.products);
 
   const headers = {
     'Authorization': `Bearer ${token}`
-  }
+  };
 
   const getUsers = async () => {
     try {
       await api.get('/beers', { headers: headers })
         .then(response => dispatch(getProducts(response.data)));
     } catch (error) {
-      if (error.response) {
-        toast.error('Ocorreu um erro ao carregar os produtos. Tente novamente!')
+      if (axios.isAxiosError(error)) {
+        toast.error('Ocorreu um erro ao carregar os produtos. Tente novamente!');
       }
     }
-  }
+  };
 
   useEffect(() => {
-    getUsers()
+    getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const addItemToCart = (item: IProduct) => {
     dispatch(addToCart(item));
     setNewCartItem(true);
-  }
+  };
 
   return (
     <>
-      { token
+      {token
         ?
         <div className="main-container">
           <Toaster />
@@ -78,6 +79,6 @@ const Home = () => {
         : <Redirect to="/" />}
     </>
   );
-}
+};
 
 export default Home;
